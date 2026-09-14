@@ -1,1 +1,565 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AKUNSTORE - Jual Beli Akun</title>
 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0b1020;
+            color: white;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 16, 32, 0.95);
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #252b40;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #00e5ff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #00e5ff;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 50px 20px;
+            background:
+                radial-gradient(circle at top, #172554, #0b1020 65%);
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #00e5ff;
+        }
+
+        .hero p {
+            color: #b8c0d9;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            background: #00e5ff;
+            color: #061018;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,229,255,0.3);
+        }
+
+        /* PRODUK */
+        .produk {
+            padding: 70px 8%;
+        }
+
+        .judul {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .judul h2 {
+            font-size: 35px;
+            color: #00e5ff;
+        }
+
+        .judul p {
+            color: #9ca6c0;
+            margin-top: 8px;
+        }
+
+        /* SEARCH */
+        .search {
+            max-width: 500px;
+            margin: 0 auto 40px;
+        }
+
+        .search input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #30384f;
+            background: #151b2e;
+            color: white;
+            outline: none;
+        }
+
+        /* CARD */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #151b2e;
+            border: 1px solid #29324a;
+            border-radius: 18px;
+            padding: 20px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #00e5ff;
+            box-shadow: 0 10px 30px rgba(0,229,255,0.12);
+        }
+
+        .gambar {
+            height: 160px;
+            border-radius: 13px;
+            background: linear-gradient(135deg, #172554, #0f766e);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 65px;
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #9ca6c0;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .harga {
+            color: #00e5ff;
+            font-size: 22px;
+            font-weight: bold;
+            margin: 18px 0;
+        }
+
+        .beli {
+            width: 100%;
+        }
+
+        /* CO */
+        .checkout {
+            padding: 70px 20px;
+            background: #11182a;
+        }
+
+        .co-box {
+            max-width: 600px;
+            margin: auto;
+            background: #151b2e;
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid #29324a;
+        }
+
+        .co-box h2 {
+            text-align: center;
+            color: #00e5ff;
+            margin-bottom: 25px;
+        }
+
+        .co-box label {
+            display: block;
+            margin: 15px 0 7px;
+        }
+
+        .co-box input,
+        .co-box select {
+            width: 100%;
+            padding: 13px;
+            border-radius: 8px;
+            border: 1px solid #30384f;
+            background: #0b1020;
+            color: white;
+        }
+
+        .co-box button {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        /* KONTAK */
+        .kontak {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .kontak h2 {
+            color: #00e5ff;
+            margin-bottom: 15px;
+        }
+
+        .kontak p {
+            color: #aeb6ca;
+            margin: 8px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #070b15;
+            color: #7f8aa5;
+        }
+
+        /* MOBILE */
+        @media (max-width: 600px) {
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav ul {
+                gap: 10px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">⚡ AKUNSTORE</div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#produk">Produk</a></li>
+            <li><a href="#co">CO</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div>
+            <h1>JUAL BELI <span>AKUN</span></h1>
+
+            <p>
+                Temukan akun pilihan dengan harga terjangkau
+                dan proses transaksi yang mudah.
+            </p>
+
+            <a href="#produk" class="btn">
+                🛒 Lihat Produk
+            </a>
+        </div>
+    </section>
+
+
+    <!-- PRODUK -->
+    <section class="produk" id="produk">
+
+        <div class="judul">
+            <h2>🔥 PRODUK AKUN</h2>
+            <p>Pilih akun yang kamu inginkan</p>
+        </div>
+
+        <!-- SEARCH -->
+        <div class="search">
+            <input
+                type="text"
+                id="search"
+                placeholder="🔍 Cari akun..."
+                onkeyup="cariProduk()"
+            >
+        </div>
+
+
+        <div class="container" id="daftarProduk">
+
+            <!-- PRODUK 1 -->
+            <div class="card">
+                <div class="gambar">🎮</div>
+
+                <h3>Akun Game Basic</h3>
+
+                <p>
+                    Akun game dengan berbagai item
+                    dan fitur menarik.
+                </p>
+
+                <div class="harga">Rp50.000</div>
+
+                <button class="btn beli"
+                    onclick="pesan('Akun Game Basic - Rp50.000')">
+                    🛒 Beli Sekarang
+                </button>
+            </div>
+
+
+            <!-- PRODUK 2 -->
+            <div class="card">
+                <div class="gambar">🔥</div>
+
+                <h3>Akun Game Premium</h3>
+
+                <p>
+                    Akun premium dengan item
+                    dan koleksi lebih lengkap.
+                </p>
+
+                <div class="harga">Rp100.000</div>
+
+                <button class="btn beli"
+                    onclick="pesan('Akun Game Premium - Rp100.000')">
+                    🛒 Beli Sekarang
+                </button>
+            </div>
+
+
+            <!-- PRODUK 3 -->
+            <div class="card">
+                <div class="gambar">💎</div>
+
+                <h3>Akun Sultan</h3>
+
+                <p>
+                    Akun dengan koleksi item
+                    dan fitur yang sangat lengkap.
+                </p>
+
+                <div class="harga">Rp250.000</div>
+
+                <button class="btn beli"
+                    onclick="pesan('Akun Sultan - Rp250.000')">
+                    🛒 Beli Sekarang
+                </button>
+            </div>
+
+
+            <!-- PRODUK 4 -->
+            <div class="card">
+                <div class="gambar">⭐</div>
+
+                <h3>Akun Special</h3>
+
+                <p>
+                    Akun pilihan dengan berbagai
+                    bonus menarik.
+                </p>
+
+                <div class="harga">Rp150.000</div>
+
+                <button class="btn beli"
+                    onclick="pesan('Akun Special - Rp150.000')">
+                    🛒 Beli Sekarang
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- CHECKOUT -->
+    <section class="checkout" id="co">
+
+        <div class="co-box">
+
+            <h2>🛍️ CHECKOUT / CO</h2>
+
+            <label>Nama Pembeli</label>
+            <input
+                type="text"
+                id="nama"
+                placeholder="Masukkan nama kamu"
+            >
+
+            <label>Pilih Produk</label>
+
+            <select id="produkPilihan">
+                <option>Akun Game Basic - Rp50.000</option>
+                <option>Akun Game Premium - Rp100.000</option>
+                <option>Akun Sultan - Rp250.000</option>
+                <option>Akun Special - Rp150.000</option>
+            </select>
+
+            <button class="btn" onclick="checkout()">
+                💬 Checkout via WhatsApp
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- KONTAK -->
+    <section class="kontak" id="kontak">
+
+        <h2>📞 KONTAK TOKO</h2>
+
+        <p>📍 Alamat: Jl. Contoh Alamat Toko</p>
+
+        <p>📱 WhatsApp: 08XXXXXXXXXX</p>
+
+        <br>
+
+        <a
+            class="btn"
+            href="https://wa.me/628XXXXXXXXXX"
+            target="_blank"
+        >
+            💬 Chat WhatsApp
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 AKUNSTORE | Jual Beli Akun
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        // PESAN PRODUK
+        function pesan(produk) {
+
+            let nomor = "628XXXXXXXXXX";
+
+            let pesan =
+                "Halo Admin AKUNSTORE 👋%0A%0A" +
+                "Saya ingin membeli:%0A" +
+                produk +
+                "%0A%0AMohon informasinya.";
+
+            window.open(
+                "https://wa.me/" + nomor + "?text=" + pesan,
+                "_blank"
+            );
+        }
+
+
+        // CHECKOUT
+        function checkout() {
+
+            let nama =
+                document.getElementById("nama").value;
+
+            let produk =
+                document.getElementById("produkPilihan").value;
+
+            if (nama === "") {
+                alert("Silakan masukkan nama terlebih dahulu!");
+                return;
+            }
+
+            let nomor = "628XXXXXXXXXX";
+
+            let pesan =
+                "Halo Admin AKUNSTORE 👋%0A%0A" +
+                "Nama: " + nama +
+                "%0AProduk: " + produk +
+                "%0A%0ASaya ingin melakukan checkout.";
+
+            window.open(
+                "https://wa.me/" + nomor + "?text=" + pesan,
+                "_blank"
+            );
+        }
+
+
+        // SEARCH PRODUK
+        function cariProduk() {
+
+            let input =
+                document.getElementById("search")
+                .value.toLowerCase();
+
+            let cards =
+                document.querySelectorAll(".card");
+
+            cards.forEach(function(card) {
+
+                let nama =
+                    card.querySelector("h3")
+                    .innerText.toLowerCase();
+
+                if (nama.includes(input)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+
+            });
+        }
+
+        // TOMBOL HERO
+        function pesanSekarang() {
+            document.getElementById("produk")
+                .scrollIntoView();
+        }
+
+    </script>
+
+</body>
+</html>
